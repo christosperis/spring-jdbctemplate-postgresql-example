@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.codehub.spring.jdbcpostgresql.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,14 +16,17 @@ import com.codehub.spring.jdbcpostgresql.model.Customer;
 
 @SpringBootApplication
 @ComponentScan("com.codehub.spring.jdbcpostgresql")
-public class SpringJdbcTemplatePostgreSqlApplication {
+public class SpringJdbcTemplatePostgreSqlApplication implements CommandLineRunner {
 
 	@Autowired
 	CustomerService cusService;
 
 	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(SpringJdbcTemplatePostgreSqlApplication.class, args);
-		CustomerService cusService = context.getBean(CustomerService.class);
+		SpringApplication.run(SpringJdbcTemplatePostgreSqlApplication.class, args);
+	}
+
+	@Override
+	public void run(String... strings) throws Exception {
 		/*
 		 * Create Customer
 		 */
@@ -76,5 +80,6 @@ public class SpringJdbcTemplatePostgreSqlApplication {
 		System.out.println("#######################################");
 		System.out.println("Done!!!");
 		System.out.println("#######################################");
+
 	}
 }
