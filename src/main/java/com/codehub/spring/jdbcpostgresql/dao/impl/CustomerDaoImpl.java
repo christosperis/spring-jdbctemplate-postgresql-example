@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 import com.codehub.spring.jdbcpostgresql.dao.CustomerDao;
 import com.codehub.spring.jdbcpostgresql.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;

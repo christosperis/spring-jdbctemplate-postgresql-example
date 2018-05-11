@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.codehub.spring.jdbcpostgresql.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import com.codehub.spring.jdbcpostgresql.dao.CustomerDao;

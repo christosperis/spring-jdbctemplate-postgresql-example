@@ -5,7 +5,10 @@ import java.util.List;
 import java.util.Random;
 
 import com.codehub.spring.jdbcpostgresql.service.CustomerService;
+import com.codehub.spring.jdbcpostgresql.service.CustomerSimpleJdbcService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,14 +18,19 @@ import com.codehub.spring.jdbcpostgresql.model.Customer;
 
 @SpringBootApplication
 @ComponentScan("com.codehub.spring.jdbcpostgresql")
-public class SpringJdbcTemplatePostgreSqlApplication {
+public class SpringJdbcTemplatePostgreSqlApplication implements CommandLineRunner {
 
 	@Autowired
-	CustomerService cusService;
+	@Qualifier("customerSimpleJdbcServiceImpl")
+	CustomerSimpleJdbcService cusService;
 
 	public static void main(String[] args) {
-		ApplicationContext context = SpringApplication.run(SpringJdbcTemplatePostgreSqlApplication.class, args);
-		CustomerService cusService = context.getBean(CustomerService.class);
+		SpringApplication.run(SpringJdbcTemplatePostgreSqlApplication.class, args);
+
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
 		/*
 		 * Create Customer
 		 */
@@ -51,15 +59,9 @@ public class SpringJdbcTemplatePostgreSqlApplication {
 
 		// Insert a customer to DB
 		cusService.insert(cus_1);
+		cusService.insert(cus_2);
+		cusService.insert(cus_3);
 
-		// Insert a List of Customer to DB
-		List<Customer> customers = new ArrayList<Customer>();
-		customers.add(cus_2);
-		customers.add(cus_3);
-		cusService.insertBatch(customers);
-
-		// Load All Customer and display
-		cusService.loadAllCustomer();
 
 		// Get Customer By Id
 		System.out.println("=============Get Customer By Id");
@@ -67,11 +69,11 @@ public class SpringJdbcTemplatePostgreSqlApplication {
 
 		// Get Customer's name by Id
 		System.out.println("=============Get Customer Name by Id");
-		cusService.getCustomerNameById(cus_2_id);
+		cusService.getCustomerById(cus_2_id);
 
 		// Get Total Customers in DB
 		System.out.println("=============Get Total Number Customer");
-		cusService.getTotalNumerCustomer();
+		cusService.getCustomerById(cus_3_id);
 
 		System.out.println("#######################################");
 		System.out.println("Done!!!");
