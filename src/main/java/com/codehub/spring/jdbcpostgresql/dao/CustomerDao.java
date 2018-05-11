@@ -1,8 +1,8 @@
 package com.codehub.spring.jdbcpostgresql.dao;
 
-import java.util.List;
-
 import com.codehub.spring.jdbcpostgresql.model.Customer;
+
+import java.util.List;
 
 public interface CustomerDao {
 	void insert(Customer cus);
