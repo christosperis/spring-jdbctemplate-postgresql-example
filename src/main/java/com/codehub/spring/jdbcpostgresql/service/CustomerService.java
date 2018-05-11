@@ -1,8 +1,8 @@
 package com.codehub.spring.jdbcpostgresql.service;
 
-import java.util.List;
-
 import com.codehub.spring.jdbcpostgresql.model.Customer;
+
+import java.util.List;
 
 public interface CustomerService {
 	void insert(Customer cus);

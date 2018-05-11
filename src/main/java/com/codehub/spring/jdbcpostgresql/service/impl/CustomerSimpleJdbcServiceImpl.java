@@ -1,6 +1,5 @@
 package com.codehub.spring.jdbcpostgresql.service.impl;
 
-import com.codehub.spring.jdbcpostgresql.dao.CustomerDao;
 import com.codehub.spring.jdbcpostgresql.dao.CustomerSimpleJdbcDao;
 import com.codehub.spring.jdbcpostgresql.model.Customer;
 import com.codehub.spring.jdbcpostgresql.service.CustomerSimpleJdbcService;

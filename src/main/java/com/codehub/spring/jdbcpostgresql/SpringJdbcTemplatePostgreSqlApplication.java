@@ -1,20 +1,15 @@
 package com.codehub.spring.jdbcpostgresql;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import com.codehub.spring.jdbcpostgresql.service.CustomerService;
+import com.codehub.spring.jdbcpostgresql.model.Customer;
 import com.codehub.spring.jdbcpostgresql.service.CustomerSimpleJdbcService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.codehub.spring.jdbcpostgresql.model.Customer;
+import java.util.Random;
 
 @SpringBootApplication
 @ComponentScan("com.codehub.spring.jdbcpostgresql")
